@@ -1,0 +1,23 @@
+.card-stats{
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    margin: 8px;
+    max-height: 100px;
+}
+.card-summary{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+}
+.card-footer{
+    color: white;
+    display: flex;
+    padding: 8px
+}
+.card-title{
+    text-align: center;
+    width: 100%;
+}
