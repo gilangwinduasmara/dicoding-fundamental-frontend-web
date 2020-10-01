@@ -1,7 +1,8 @@
 .divider{
     width: 200px;
-    height: 24px;
+    height: 16px;
     background-color: #3282b8;
+    margin-left: 5%;
 }
 
 .center{
@@ -74,6 +75,7 @@ button:hover{
 }
 .section-title{
     width: 100%;
+    font-size: 2em;
 }
 .stat-group{
     flex: 1;

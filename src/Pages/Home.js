@@ -37,9 +37,9 @@ export default class Home extends Component{
                 <header>
                     <h2 style={{color: '#776d8a'}}>Lawan Covid19</h2>
                     <div>
-                        <a href={'#statistik'}>Statistik</a>
-                        <a href={'#penularan'}>Penularan</a>
-                        <a href={'#pencegahan'}>Pencegahan</a>
+                        {/* <a href={'#statistik'}>Statistik</a> */}
+                        {/* <a href={'#penularan'}>Penularan</a>
+                        <a href={'#pencegahan'}>Pencegahan</a> */}
                     </div>
                 </header>
                 <div className={'hero'}>
