@@ -1,3 +1,6 @@
+.stats{
+    display: flex
+}
 .card-stats{
     background-color: white;
     border-radius: 8px;

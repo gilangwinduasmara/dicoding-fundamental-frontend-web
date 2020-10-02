@@ -1,31 +1,48 @@
-import React, {useEffect, useState} from 'react'
 import {getCountries} from "../../Services/api";
 import './CountrySelector.css'
 
-export default function CountrySelector(props){
-    const [countries, setCountries] = useState([{
-        name: 'Global'
-    }])
-
-    const onCountryChange = (event) => {
-        props.onCountryChange(event.target.value)
+class CountrySelector extends HTMLElement{
+    constructor(){
+        super()
+        this.countries = [{
+            name: 'Global'
+        }]
+    }
+    connectedCallback(){
+        getCountries().then((data) => {
+            this.setCountries([...this.countries, ...data.countries])
+        })
+    }
+    setCountries(countries){
+        this.countries = countries
+        this.render()
     }
 
-    useEffect(() => {
-        getCountries().then((data) => {
-            setCountries([...countries, ...data.countries])
-            // console.log(data['countries'])
+    set changeEvent(event){
+        this._changeEvent = event
+        this.render()
+    }
+
+    get value(){
+        return document.querySelector('#country-selector').value
+    }
+
+    render(){
+        let countryOptions = ""
+        this.countries && this.countries.map((country, index) => {
+            countryOptions+=`            
+                <option value='${country.name}'>${country.name}</option>
+            `
         })
-    }, [])
-    return(
-        <div className={'country-selector'}>
-            <select onChange={onCountryChange}>
-                {countries && countries.map((country, index) => {
-                    return(
-                        <option value={country.name}>{country.name}</option>
-                    )
-                })}
+        this.innerHTML = `
+        <div class='country-selector'>
+            <select id='country-selector'>
+            ${countryOptions}
             </select>
         </div>
-    )
+        `    
+        document.querySelector('#country-selector').addEventListener("change", this._changeEvent)
+
+    }
 }
+customElements.define("country-selector", CountrySelector)

@@ -81,7 +81,7 @@ button:hover{
     flex: 1;
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 80vw;
     margin-right: auto;
     margin-left: auto;
 }
